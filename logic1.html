@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Logic Gate Challenge</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #2e0f0f, #050118);
+      color: #ffffff;
+    }
+
+    .top-title {
+      text-align: center;
+      font-size: 2.2em;
+      padding: 20px 10px 10px 10px;
+      font-weight: bold;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 600px;
+      padding: 20px;
+      margin: auto;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+    }
+
+    h2, h3, p, a {
+      margin-bottom: 15px;
+      color: #ffffff;
+    }
+
+    a {
+      text-decoration: none;
+      color: #ffffff;
+      background-color: #0077cc;
+      padding: 10px 20px;
+      border-radius: 5px;
+      display: inline-block;
+    }
+
+    a:hover {
+      background-color: #005fa3;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 5px;
+      border: none;
+      width: 80px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    .bottom-button {
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .bottom-button button {
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #ffffff;
+      color: #2e0f0f;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .bottom-button button:hover {
+      background-color: #ccc;
+    }
+
+    .error {
+      color: red;
+      font-weight: bold;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-title">
+    FIRST CLUE:
+  </div>
+
+  <div class="container">
+    <h2>TO GET THE FIRST CLUE, SOLVE THE GIVEN LOGIC GATE PROBLEM:</h2>
+
+    <h3>Create a circuit with (A AND B) OR C where:</h3>
+
+    <p>A = 1</p>
+    <p>B = 0</p>
+    <p>C = 1</p>
+
+    <a href="https://circuitverse.org/simulator" target="_blank">
+      Click here to design the simulator and obtain the clue
+    </a>
+
+    <div>
+      <p>Enter your final output below to proceed:</p>
+      <input type="text" id="answer" placeholder="Your answer">
+      <div class="error" id="error-msg">Incorrect answer. Try again!</div>
+    </div>
+  </div>
+
+  <div class="bottom-button">
+    <button onclick="validateAnswer()">Click for finding the next clue</button>
+  </div>
+
+  <script>
+    function validateAnswer() {
+      const answer = document.getElementById('answer').value.trim();
+      const errorMsg = document.getElementById('error-msg');
+      if (answer === "1") {
+        window.location.href = 'emoji2.html';
+      } else {
+        errorMsg.style.display = 'block';
+      }
+    }
+  </script>
+
+</body>
+</html>
+
+

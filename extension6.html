@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Escape the Room - File Logic</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #050118, #2e0f0f);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 50px 60px;
+      border-radius: 25px;
+      box-shadow: 0 0 30px rgba(255, 0, 0, 0.7);
+      text-align: center;
+      max-width: 650px;
+      width: 90%;
+    }
+
+    h1 {
+      font-size: 30px;
+      margin-bottom: 20px;
+      color: #ff4d4d;
+    }
+
+    .puzzle {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
+
+    .extensions {
+      background: #111;
+      padding: 12px;
+      border-radius: 12px;
+      margin: 20px 0;
+      font-family: monospace;
+      color: #ff6666;
+      font-size: 18px;
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      width: 60px;
+      text-align: center;
+      background: #111;
+      color: #fff;
+    }
+
+    .result {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    button {
+      margin-top: 25px;
+      padding: 12px 28px;
+      font-size: 16px;
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e60000;
+    }
+
+    #finalBtn {
+      display: none;
+    }
+
+    .footer {
+      font-size: 14px;
+      color: #aaa;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🧠 Extension Decoding Challenge</h1>
+
+    <div class="puzzle">
+      Out of the following file types,<br>how many are executable?
+    </div>
+
+    <div class="extensions">
+      .html, .exe, .com, .jpg, .cmd, .pdf, .bat, .scr
+    </div>
+
+    <input type="number" id="answer" placeholder="?" />
+    <div class="result" id="resultMsg"></div>
+
+    <button onclick="checkAnswer()">Submit</button>
+
+    <br><br>
+
+    <button id="finalBtn" onclick="goToNext()">🧩 Gained All Clues</button>
+
+    <div class="footer">
+      🧐 Hint: Think like an OS. Which ones can actually run?
+    </div>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const userAnswer = document.getElementById("answer").value.trim();
+      const resultMsg = document.getElementById("resultMsg");
+      const finalBtn = document.getElementById("finalBtn");
+
+      if (userAnswer === "5") {
+        resultMsg.textContent = "✅ Correct! These are executable: .exe, .com, .cmd, .bat, .scr";
+        resultMsg.style.color = "#00ff00";
+        finalBtn.style.display = "inline-block";
+      } else {
+        resultMsg.textContent = "❌ Incorrect! Try again.";
+        resultMsg.style.color = "#ff3333";
+        finalBtn.style.display = "none";
+      }
+    }
+
+    function goToNext() {
+      window.location.href = "end.html"; // Update this to your final page
+    }
+  </script>
+</body>
+</html>
+

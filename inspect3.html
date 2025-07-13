@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Center Text Page</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: linear-gradient(135deg, #050118, #2e0f0f);
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+
+    h2 {
+      font-size: 2em;
+      color: #ffcccb;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .input-box {
+      margin-top: 20px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 5px;
+      border: none;
+      text-align: center;
+      width: 100px;
+      background-color: #fff;
+      color: #000;
+    }
+
+    .error-msg {
+      color: #ff6666;
+      font-weight: bold;
+      margin-top: 10px;
+      display: none;
+    }
+
+    .bottom-button {
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .bottom-button button {
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #fff;
+      color: #2e0f0f;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .bottom-button button:hover {
+      background-color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>SECOND CLUE:</h2>
+    <h1><span class="red">INSPECT</span> UNTIL YOU SUSPECT</h1>
+
+    <div class="input-box">
+      <input type="text" id="answerInput" placeholder="Enter answer">
+      <div class="error-msg" id="errorMsg">❌ Incorrect. Try again!</div>
+    </div>
+  </div>
+
+  <div class="bottom-button">
+    <button onclick="validateAnswer()">Click for finding the next clue</button>
+  </div>
+
+  <!-- SECOND CLUE IS: 2 -->
+
+  <script>
+    function validateAnswer() {
+      const input = document.getElementById("answerInput").value.trim();
+      const error = document.getElementById("errorMsg");
+      if (input === "2") {
+        window.location.href = "caesar4.html";
+      } else {
+        error.style.display = "block";
+      }
+    }
+  </script>
+
+</body>
+</html>

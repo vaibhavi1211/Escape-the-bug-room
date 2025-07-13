@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Emoji Riddle Puzzle - WWW Day</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #2e0f0f, #050118);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 50px 60px;
+      border-radius: 25px;
+      box-shadow: 0 0 30px rgba(255, 0, 0, 0.7);
+      text-align: center;
+      max-width: 750px;
+      width: 95%;
+    }
+
+    h1 {
+      font-size: 30px;
+      margin-bottom: 20px;
+      color: #ff4d4d;
+    }
+
+    .puzzle {
+      font-size: 20px;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .emoji-clue {
+      font-size: 34px;
+      margin: 15px 0;
+    }
+
+    .input-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+
+    .input-box {
+      text-align: center;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      width: 100px;
+      text-align: center;
+      background: #111;
+      color: #fff;
+    }
+
+    .letter-count {
+      margin-top: 5px;
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    .plus-sign {
+      font-size: 24px;
+      color: #ff4d4d;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .footer {
+      font-size: 14px;
+      color: #aaa;
+      margin-top: 30px;
+    }
+
+    .submit-button,
+    .next-button {
+      margin-top: 20px;
+      padding: 12px 30px;
+      font-size: 16px;
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .submit-button:hover,
+    .next-button:hover {
+      background-color: #e60000;
+    }
+
+    .next-button:disabled {
+      background-color: #555;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Emoji Riddle Puzzle 🌐💡</h1>
+    <div class="puzzle">
+      Enter the words that match the emojis. Then hit <strong>Submit</strong> to check.<br>
+      If the total equals <strong>8</strong> — You're right!
+    </div>
+
+    <div class="emoji-clue">🏃🏻‍♀ + 🔛 + 🕸</div>
+
+    <div class="input-row">
+      <div class="input-box">
+        <input type="text" id="word1" maxlength="10" oninput="updateCounts()" onkeydown="handleKey(event, 'word2')">
+        <div class="letter-count" id="count1">0 letters</div>
+      </div>
+      <div class="plus-sign">+</div>
+      <div class="input-box">
+        <input type="text" id="word2" maxlength="10" oninput="updateCounts()" onkeydown="handleKey(event, 'word3')">
+        <div class="letter-count" id="count2">0 letters</div>
+      </div>
+      <div class="plus-sign">+</div>
+      <div class="input-box">
+        <input type="text" id="word3" maxlength="10" oninput="updateCounts()" onkeydown="handleKey(event, 'submitBtn')">
+        <div class="letter-count" id="count3">0 letters</div>
+      </div>
+    </div>
+
+    <div class="result" id="resultMsg">Total: 0</div>
+
+    <button class="submit-button" id="submitBtn" onclick="checkAnswer()">Submit</button>
+    
+    <br><br>
+
+    <button class="next-button" id="nextBtn" onclick="goToNext()" disabled>Go to Next Clue ➡️</button>
+
+    <div class="footer">
+      🔍 Use your WWW logic 🧠 | Total: 8 letters
+    </div>
+  </div>
+
+  <script>
+    function updateCounts() {
+      const word1 = document.getElementById("word1").value.trim();
+      const word2 = document.getElementById("word2").value.trim();
+      const word3 = document.getElementById("word3").value.trim();
+
+      document.getElementById("count1").textContent = `${word1.length} letters`;
+      document.getElementById("count2").textContent = `${word2.length} letters`;
+      document.getElementById("count3").textContent = `${word3.length} letters`;
+    }
+
+    function checkAnswer() {
+      const word1 = document.getElementById("word1").value.trim();
+      const word2 = document.getElementById("word2").value.trim();
+      const word3 = document.getElementById("word3").value.trim();
+      const total = word1.length + word2.length + word3.length;
+
+      const resultMsg = document.getElementById("resultMsg");
+      const nextBtn = document.getElementById("nextBtn");
+
+      if (total === 8) {
+        resultMsg.textContent = "✅ Correct! Total: 8";
+        resultMsg.style.color = "#00ff00";
+        nextBtn.disabled = false;
+      } else {
+        resultMsg.textContent = `❌ Incorrect. Total: ${total}`;
+        resultMsg.style.color = "#ff3333";
+        nextBtn.disabled = true;
+      }
+    }
+
+    function handleKey(event, nextId) {
+      const input = event.target;
+      if (event.key === 'Enter' || input.value.length === input.maxLength) {
+        event.preventDefault();
+        const nextElem = document.getElementById(nextId);
+        if (nextElem) {
+          nextElem.focus();
+        }
+      }
+    }
+
+    function goToNext() {
+      const btn = document.getElementById("nextBtn");
+      if (!btn.disabled) {
+        window.location.href = "inspect3.html"; // Replace with your actual next clue page
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Escape the Bug Room</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #0a0f1c, #3b0a0a);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #ffffff;
+      flex-direction: column;
+    }
+
+    .alert-text {
+      font-size: 3.5em;
+      color: #ff4b5c;
+      text-shadow: 0 0 15px #ff4b5c, 0 0 30px #ff4b5c;
+      margin-bottom: 25px;
+      animation: pulse 1.5s infinite;
+    }
+
+    .instruction {
+      font-size: 1.5em;
+      max-width: 600px;
+      line-height: 1.6;
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 25px 35px;
+      border-radius: 14px;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.08);
+      color: #f1f1f1;
+    }
+
+    .highlight {
+      color: #ffcccb;
+      font-weight: bold;
+    }
+
+    @keyframes pulse {
+      0%   { text-shadow: 0 0 15px #ff4b5c; }
+      50%  { text-shadow: 0 0 35px #ff4b5c; }
+      100% { text-shadow: 0 0 15px #ff4b5c; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="alert-text">🚨 Hurry!</div>
+  <div class="instruction">
+    Enter the <span class="highlight">obtained passcode</span> on the big screen<br>
+    to <span class="highlight">escape the bug room first</span>!<br><br>
+    ⏳ <em>Only the fastest will survive...</em>
+  </div>
+
+</body>
+</html>
+

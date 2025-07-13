@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Caesar Cipher Decryption Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #050118, #2e0f0f);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .top-heading {
+      margin-top: 30px;
+      font-size: 2.5em;
+      font-weight: bold;
+      text-align: center;
+      color: #ffcccb;
+    }
+
+    .quiz-container {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #ff4d4d;
+    }
+
+    code {
+      font-size: 1.2em;
+      background: #111;
+      padding: 5px 10px;
+      border-radius: 6px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 90%;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+      border: none;
+      outline: none;
+      background: #111;
+      color: #fff;
+      text-align: center;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      background-color: #ff4d4d;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e60000;
+    }
+
+    #result {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .bottom-button {
+      margin-bottom: 30px;
+    }
+
+    .bottom-button button:disabled {
+      background-color: #555;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-heading">FOURTH CLUE:</div>
+
+  <div class="quiz-container">
+    <h2>🔐 Caesar Cipher Decryption Quiz</h2>
+    <p><strong>Encrypted Message:</strong><br><code>chur</code></p>
+    <p>Shift: 3</p>
+    <input type="text" id="userAnswer" placeholder="Enter your decrypted answer here">
+    <br>
+    <button onclick="checkAnswer()">Submit</button>
+    <p id="result"></p>
+  </div>
+
+  <div class="bottom-button">
+    <button id="nextBtn" onclick="goToNext()" disabled>Go to Next Clue ➡️</button>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const correctAnswer = "zero";
+      const userAnswer = document.getElementById("userAnswer").value.trim().toLowerCase();
+      const result = document.getElementById("result");
+      const nextBtn = document.getElementById("nextBtn");
+
+      if (userAnswer === correctAnswer) {
+        result.innerHTML = "✅ Correct! Well done!";
+        result.style.color = "limegreen";
+        nextBtn.disabled = false;
+      } else {
+        result.innerHTML = "❌ Incorrect. Try again!";
+        result.style.color = "red";
+        nextBtn.disabled = true;
+      }
+    }
+
+    function goToNext() {
+      const nextBtn = document.getElementById("nextBtn");
+      if (!nextBtn.disabled) {
+        window.location.href = "extension6.html";
+      }
+    }
+  </script>
+
+</body>
+</html>

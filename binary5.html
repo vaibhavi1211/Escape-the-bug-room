@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Binary to ASCII Puzzle</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #2e0f0f, #050118);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 50px;
+      border-radius: 25px;
+      box-shadow: 0 0 30px rgba(255, 0, 0, 0.7);
+      text-align: center;
+      max-width: 700px;
+      width: 90%;
+    }
+
+    h1 {
+      font-size: 28px;
+      color: #ff4d4d;
+      margin-bottom: 20px;
+    }
+
+    .puzzle, .example {
+      font-size: 18px;
+      margin: 20px 0;
+    }
+
+    .binary {
+      font-family: monospace;
+      font-size: 20px;
+      background: #111;
+      padding: 10px;
+      border-radius: 10px;
+      display: inline-block;
+      color: #ff6666;
+      margin: 10px 0;
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      width: 100px;
+      text-align: center;
+      background: #111;
+      color: #fff;
+    }
+
+    .result {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    button {
+      margin-top: 25px;
+      padding: 12px 30px;
+      font-size: 16px;
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e60000;
+    }
+
+    .footer {
+      font-size: 14px;
+      color: #aaa;
+      margin-top: 25px;
+    }
+
+    #nextBtn:disabled {
+      background-color: #555;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>💡 Binary to ASCII Puzzle</h1>
+
+    <div class="example">
+      <strong>Example:</strong><br>
+      <span class="binary">01000001</span> → A (ASCII 65)
+    </div>
+
+    <div class="puzzle">
+      <strong>Challenge:</strong><br>
+      Convert the binary code below to its ASCII character.<br>
+      What digit does it represent?
+    </div>
+
+    <div class="binary">00110010</div>
+
+    <input type="number" id="userAnswer" placeholder="?" />
+    <div class="result" id="resultMsg"></div>
+
+    <button onclick="checkAnswer()">Submit</button>
+    <br><br>
+    <button id="nextBtn" onclick="goToNext()" disabled>Go to Next Clue ➡️</button>
+
+    <div class="footer">
+      💡 Hint: first convert binary to decimal and find which ASCII value is Associated with the obtained decimal value
+    </div>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const answer = document.getElementById("userAnswer").value.trim();
+      const result = document.getElementById("resultMsg");
+      const nextBtn = document.getElementById("nextBtn");
+
+      if (answer === "2") {
+        result.textContent = "✅ Correct! Binary 00110010 = ASCII '2'.";
+        result.style.color = "#00ff00";
+        nextBtn.disabled = false;
+      } else {
+        result.textContent = "❌ Incorrect. Try again.";
+        result.style.color = "#ff3333";
+        nextBtn.disabled = true;
+      }
+    }
+
+    function goToNext() {
+      const nextBtn = document.getElementById("nextBtn");
+      if (!nextBtn.disabled) {
+        window.location.href = "EXTENSION.html"; // Replace with your next clue URL
+      }
+    }
+  </script>
+</body>
+</html>

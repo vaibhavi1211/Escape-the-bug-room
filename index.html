@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Escape Room - Begin</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #050118, #2e0f0f);
+      font-family: 'Orbitron', sans-serif;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 3em;
+      text-align: center;
+      margin-top: 100px;
+      text-shadow: 0 0 15px crimson;
+    }
+
+    p {
+      font-size: 1.2em;
+      text-align: center;
+      max-width: 600px;
+      margin: 20px auto;
+      color: #ddd;
+    }
+
+    .start-btn {
+      background-color: #8B0000;
+      color: white;
+      border: none;
+      padding: 16px 32px;
+      font-size: 1.2em;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-bottom: 50px;
+      box-shadow: 0 0 10px #ff0000;
+      transition: transform 0.2s, background 0.3s;
+    }
+
+    .start-btn:hover {
+      background-color: #b30000;
+      transform: scale(1.05);
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div>
+    <h1>Welcome to the Escape Room</h1>
+    <p>
+      You’ve just stepped into a digital maze where your logic, wit, and courage will be put to the test. Each room hides a secret. Each puzzle unlocks a path.
+    </p>
+  </div>
+
+  <button class="start-btn" onclick="startGame()">Begin Your Escape</button>
+
+  <script>
+    function startGame() {
+      // Redirect to next page of the escape room
+      window.location.href = "logic1.html"; // change this to your actual game page
+    }
+  </script>
+</body>
+</html>
