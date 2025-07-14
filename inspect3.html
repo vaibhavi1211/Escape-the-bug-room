@@ -35,6 +35,24 @@
       margin-bottom: 20px;
     }
 
+    .clickable-inspect {
+      color: white;
+      cursor: pointer;
+      text-decoration: none;
+      position: relative;
+    }
+
+    .clickable-inspect:hover::after {
+      content: "💡 Right-click and select 'Inspect'";
+      position: absolute;
+      top: 130%;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #ccc;
+      font-size: 10px;
+      white-space: nowrap;
+    }
+
     .input-box {
       margin-top: 20px;
     }
@@ -83,7 +101,9 @@
 
   <div class="container">
     <h2>SECOND CLUE:</h2>
-    <h1><span class="red">INSPECT</span> UNTIL YOU SUSPECT</h1>
+    <h1>
+      <span class="clickable-inspect">INSPECT</span> UNTIL YOU SUSPECT
+    </h1>
 
     <div class="input-box">
       <input type="text" id="answerInput" placeholder="Enter answer">
@@ -107,6 +127,10 @@
         error.style.display = "block";
       }
     }
+
+    document.querySelector('.clickable-inspect').addEventListener('click', () => {
+      alert("Try right-clicking for the clue!");
+    });
   </script>
 
 </body>
