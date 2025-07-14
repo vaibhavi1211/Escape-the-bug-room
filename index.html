@@ -12,25 +12,35 @@
       font-family: 'Orbitron', sans-serif;
       color: #fff;
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .center-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 700px;
+      gap: 20px;
     }
 
     h1 {
       font-size: 3em;
-      text-align: center;
-      margin-top: 100px;
       text-shadow: 0 0 15px crimson;
+      margin: 0;
     }
 
     p {
       font-size: 1.2em;
-      text-align: center;
-      max-width: 600px;
-      margin: 20px auto;
       color: #ddd;
+      margin: 0;
+    }
+
+    .rule-text {
+      font-size: 1em;
+      color: #ffcccb;
+      margin: 0;
     }
 
     .start-btn {
@@ -41,7 +51,6 @@
       font-size: 1.2em;
       border-radius: 8px;
       cursor: pointer;
-      margin-bottom: 50px;
       box-shadow: 0 0 10px #ff0000;
       transition: transform 0.2s, background 0.3s;
     }
@@ -54,18 +63,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div>
+  <div class="center-content">
     <h1>Welcome to the Escape Room</h1>
-    <p>
-      You’ve just stepped into a digital maze where your logic, wit, and courage will be put to the test. Each room hides a secret. Each puzzle unlocks a path.
-    </p>
+    <p>You’ve just stepped into a digital maze where your logic, wit, and courage will be put to the test. Each room hides a secret. Each puzzle unlocks a path.</p>
+    <div class="rule-text">
+      Escape Rule #1: Remember the code. Forget it, and the room remembers you.
+    </div>
+    <button class="start-btn" onclick="startGame()">Begin Your Escape</button>
   </div>
-
-  <button class="start-btn" onclick="startGame()">Begin Your Escape</button>
 
   <script>
     function startGame() {
-      // Redirect to next page of the escape room
       window.location.href = "logic1.html"; // change this to your actual game page
     }
   </script>
